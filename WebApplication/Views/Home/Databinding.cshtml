@@ -1,0 +1,32 @@
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    // ViewBag.Title = "DirectivesView Page";
+}
+ 
+ <h1>Databinding</h1> 
+    <div ng-init="firstName='John'; lastName='Doe';">
+        <strong>First name:</strong> {{firstName}} <br />
+        <strong>Last name:</strong> <span ng-bind="lastName" />
+    </div>
+   
+   <div ng-controller="WebApplication.CustomersController as vm">
+        <div>
+            <filter-textbox filter="vm.filter"></filter-textbox>
+            <br />
+            <h3>Customers:</h3>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tr ng-repeat="cust in vm.customers |  filter:vm.filter | orderBy:'name'">
+                    <td><a href="#/orders/{{ cust.id }}">{{ cust.name  }}</a></td>
+                    <td>{{ cust.total | currency }}</td>
+                </tr>
+            </table>
+        </div> 
+   </div>
