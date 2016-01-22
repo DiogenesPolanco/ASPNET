@@ -15,17 +15,17 @@
         <div>
             <filter-textbox filter="vm.filter"></filter-textbox>
             <br />
-            <h3>Customers:</h3>
+            <h3>Movies:</h3>
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th>Name</th>
-                        <th>Total</th>
+                        <th>Title</th>
+                        <th>Price</th>
                     </tr>
                 </thead>
-                <tr ng-repeat="cust in vm.customers |  filter:vm.filter | orderBy:'name'">
-                    <td><a href="#/orders/{{ cust.id }}">{{ cust.name  }}</a></td>
-                    <td>{{ cust.total | currency }}</td>
+                <tr ng-repeat="cust in vm.customers |  filter:vm.filter | orderBy:'Title'">
+                    <td><a href="#/orders/{{ cust.id }}">{{ cust.Title  }}</a></td>
+                    <td>{{ cust.Price | currency }}</td>
                 </tr>
             </table>
         </div> 

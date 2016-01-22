@@ -3,21 +3,27 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Mvc;
+using WebApplication.Models;
 
 namespace WebApplication.Controllers
 {
     [Route("api/[controller]")]
     public class ValuesController : Controller
     {
+        private readonly ApplicationDbContext _applicationDbContext;
+        
+         public ValuesController( 
+            ApplicationDbContext applicationDbContext)
+        { 
+            _applicationDbContext = applicationDbContext;
+        }
+
+
         // GET: api/values
         [HttpGet]
-        public IEnumerable<object> Get()
-        {
-            return new [] {     new  {id= 1, name="Ted", total= 5.996}, 
-                                new {id= 2, name= "Michelle", total=10.994}, 
-                                new {id=3, name="Zed", total= 10.99}, 
-                                new {id= 4, name="Tina", total= 15.994}
-                         };
+        public IEnumerable<Movie> Get()
+        { 
+            return _applicationDbContext.Movies.ToList();
         }
 
         // GET api/values/5
