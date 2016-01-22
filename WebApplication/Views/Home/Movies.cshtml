@@ -1,0 +1,28 @@
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    // ViewBag.Title = "DirectivesView Page";
+}
+ 
+ <h1>Movie</h1> 
+ 
+   <div ng-controller="WebApplication.MoviesController as vm">
+        <div>
+            <filter-textbox filter="vm.filter"></filter-textbox>
+            <br />
+            <h3>Movies:</h3>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tr ng-repeat="movie in vm.Movies |  filter:vm.filter | orderBy:'Title'">
+                    <td><a href="/api/Movie/{{ movie.ID }}">{{ movie.Title  }}</a></td>
+                    <td>{{ movie.Price | currency }}</td>
+                </tr>
+            </table>
+        </div> 
+   </div>

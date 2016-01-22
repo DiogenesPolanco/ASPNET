@@ -10,23 +10,4 @@
         <strong>First name:</strong> {{firstName}} <br />
         <strong>Last name:</strong> <span ng-bind="lastName" />
     </div>
-   
-   <div ng-controller="WebApplication.CustomersController as vm">
-        <div>
-            <filter-textbox filter="vm.filter"></filter-textbox>
-            <br />
-            <h3>Movies:</h3>
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th>Title</th>
-                        <th>Price</th>
-                    </tr>
-                </thead>
-                <tr ng-repeat="cust in vm.customers |  filter:vm.filter | orderBy:'Title'">
-                    <td><a href="#/orders/{{ cust.id }}">{{ cust.Title  }}</a></td>
-                    <td>{{ cust.Price | currency }}</td>
-                </tr>
-            </table>
-        </div> 
-   </div>
+ 

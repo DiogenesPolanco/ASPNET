@@ -1,23 +1,21 @@
 module WebApplication {
 
-    export interface ICustomer {
-        id: number;
-        name: string;
-        total: number;
+    export interface IMovie {
+        ID: number;
+        Title: string;
+        Genre: string;
+        Price: number;
+        ReleaseDate: Date; 
+        Total: number;
     }
-
-    export interface IOrder {
-        product: string;
-        total: number;
-    }
-
+ 
     export class DataService {
 
         static $inject = ['$http'];
         constructor(private $http: ng.IHttpService) {}
 
-        getCustomers(): ng.IPromise<ICustomer[]> {
-            return this.$http.get('/api/values').then(response => {
+        getMovies(): ng.IPromise<IMovie[]> {
+            return this.$http.get('/api/movie').then(response => {
                 return response.data;
             });
         }

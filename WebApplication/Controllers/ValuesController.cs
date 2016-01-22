@@ -17,15 +17,7 @@ namespace WebApplication.Controllers
         { 
             _applicationDbContext = applicationDbContext;
         }
-
-
-        // GET: api/values
-        [HttpGet]
-        public IEnumerable<Movie> Get()
-        { 
-            return _applicationDbContext.Movies.ToList();
-        }
-
+ 
         // GET api/values/5
         [HttpGet("{id}")]
         public string Get(int id)

@@ -4,14 +4,8 @@ var WebApplication;
         function DataService($http) {
             this.$http = $http;
         }
-        DataService.prototype.getCustomers = function () {
-            return this.$http.get('/api/values').then(function (response) {
-                return response.data;
-            });
-        };
-        DataService.prototype.getOrder = function (key) {
-            var params = { id: key };
-            return this.$http.get('/orders.json', params).then(function (response) {
+        DataService.prototype.getMovies = function () {
+            return this.$http.get('/api/movie').then(function (response) {
                 return response.data;
             });
         };
